@@ -1,4 +1,4 @@
-package manager;
+package manager.entities;
 
 import java.util.ArrayList;
 

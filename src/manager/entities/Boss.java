@@ -1,4 +1,4 @@
-package manager;
+package manager.entities;
 
 public class Boss extends Person {
 

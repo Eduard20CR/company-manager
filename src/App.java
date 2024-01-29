@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import manager.Boss;
-import manager.Company;
-import manager.Employee;
-import manager.Manager;
-import manager.Task;
+import manager.entities.Boss;
+import manager.entities.Company;
+import manager.entities.Employee;
+import manager.entities.Task;
+import manager.managers.Manager;
 
 public class App {
     static Scanner s = new Scanner(System.in);

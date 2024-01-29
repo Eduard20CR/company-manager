@@ -1,6 +1,9 @@
-package manager;
+package manager.managers;
 
 import java.util.Scanner;
+
+import manager.entities.Company;
+import manager.helpers.MesageManager;
 
 public class Manager {
     private Company company;

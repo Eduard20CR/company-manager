@@ -1,4 +1,6 @@
-package manager;
+package manager.entities;
+
+import manager.helpers.MesageManager;
 
 public class Person {
     private String id;

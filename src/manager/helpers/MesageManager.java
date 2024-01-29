@@ -1,4 +1,4 @@
-package manager;
+package manager.helpers;
 
 public class MesageManager {
     static public void printOptionTtileWithList(String title, String[] options) {

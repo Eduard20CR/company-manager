@@ -1,4 +1,4 @@
-package manager;
+package manager.entities;
 
 public class Employee extends Person {
 
