@@ -25,12 +25,10 @@ public class Person {
     }
 
     public boolean signIn(String usernameSignUp, String passwordSignUp) {
-        MesageManager.println("usernameSignUp: " + usernameSignUp);
-        MesageManager.println("passwordSignUp: " + passwordSignUp);
-        MesageManager.println("this.username: " + this.username);
-        MesageManager.println("this.password: " + this.password);
-        System.out.println(username.equals(usernameSignUp));
-        System.out.println(password.equals(passwordSignUp));
         return username.equals(usernameSignUp) && password.equals(passwordSignUp);
+    }
+
+    public String getId() {
+        return id;
     }
 }

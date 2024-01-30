@@ -2,8 +2,12 @@ package manager.managers;
 
 import java.util.Scanner;
 
+import javax.print.DocFlavor.STRING;
+
 import manager.entities.Company;
+import manager.entities.Employee;
 import manager.helpers.MesageManager;
+import manager.helpers.LoginManager;
 
 public class Manager {
     private Company company;
@@ -19,15 +23,16 @@ public class Manager {
     public void runManager() {
         while (true) {
             MesageManager.printOptionTtileWithList("Welcome", new String[] { "Exit", "Sign In" });
-            int panelChoice = s.nextInt();
-
+            String panelChoice = s.nextLine();
             switch (panelChoice) {
-                case 0:
+                case "0":
                     System.exit(0);
                     break;
-                case 1:
-                    signIn();
+
+                case "1":
+                    login();
                     break;
+
                 default:
                     System.out.print("Not valid option. Try again.");
                     break;
@@ -35,24 +40,25 @@ public class Manager {
         }
     }
 
-    private String signIn() {
-        MesageManager.println("Type username (Just numbers):");
-        String username = s.next();
-        MesageManager.println("Type password:");
-        String password = s.next();
+    private void login() {
+        LoginManager signInManager = new LoginManager(company, s);
+        String[] signInResult = signInManager.login();
 
-        // isBoss
-        if (company.getBoss().signIn(username, password)) {
-            MesageManager.println("I am a boss");
-            return "boss";
+        if (signInResult[0] == "boss") {
+            runManagerBoss();
+        } else if (signInResult[0] == "employee") {
+            runManagerEmployee(signInResult[1]);
         }
-        // isEmployee
-        company.getEmployees().stream().filter(e -> e.signIn(username, password));
-        MesageManager.println("I am a employee");
+    }
 
-        // Not found
-        MesageManager.println("Not found");
-        return "";
+    private void runManagerBoss() {
+        ManagerBoss bossManager = new ManagerBoss(s, company);
+        bossManager.runManager();
+    }
+
+    private void runManagerEmployee(String employeeId) {
+        ManagerEmployee employeeManager = new ManagerEmployee(s, company, employeeId);
+        employeeManager.runManager();
     }
 
 }

@@ -11,8 +11,14 @@ public class App {
     static Scanner s = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception {
-        Boss boss = new Boss("asdasdasd", "Oscar", "Vasquez", "user", "pass", 0, 0);
+        Boss boss = new Boss("id1", "Oscar", "Vasquez", "boss", "pass", 0, 0);
+
+        Employee employee1 = new Employee("id2", "Oscar", "Vasquez", "user1", "pass", 0, 0);
+        Employee employee2 = new Employee("id3", "Oscar", "Vasquez", "user2", "pass", 0, 0);
         ArrayList<Employee> employees = new ArrayList<Employee>();
+        employees.add(employee1);
+        employees.add(employee2);
+
         ArrayList<Task> tasks = new ArrayList<Task>();
 
         Company company = new Company(boss, employees, tasks);
